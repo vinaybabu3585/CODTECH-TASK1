@@ -1,0 +1,148 @@
+/* 
+A simple quiz is an interactive game or exercise where participants are asked questions and are provided with multiple answer options.
+The goal is to test knowledge or learning on a particular subject or general information. Each question typically has 3–4 choices, out of which only one is correct. 
+The participant selects the answer they think is right, and at the end of the quiz, their score is calculated based on how many correct answers they chose.
+Key Elements of a Simple Quiz:
+1.Questions.
+2.Answer Options.
+3.Scoring.
+4.Feedback.
+*/
+#include <stdio.h>
+#include <string.h>
+#include<ctype.h>
+
+#define NUM_QUESTIONS 15                                     //defining number of questions.
+
+struct Question                                               //creating char structure with question,options,correct_answer.
+ {
+    char question[256];
+    char options[4][100];
+    char correct_option;
+};
+
+void askQuestion(struct Question q, int *score)
+{
+    char answer;
+
+    printf("\n%s\n", q.question);
+    for (int i = 0; i < 4; i++)
+    {
+        printf("%c. %s\n", 'A' + i, q.options[i]);
+    }
+
+    printf("Your answer (A, B, C, D): ");
+    scanf(" %c", &answer);
+
+    if (toupper(answer) == q.correct_option)
+    {
+        printf("Correct!\n");
+        (*score)++;                 // updating the score
+    }
+    else 
+    {
+        printf("Incorrect. The correct answer is %c.\n", q.correct_option);
+    }
+}
+
+int main()
+{
+    struct Question quiz[NUM_QUESTIONS] = 
+    {
+        {
+            "What is the capital of France?",
+            {"Berlin", "London", "Paris", "Madrid"},
+            'C'
+        },
+        {
+            "Which language is used to write Linux kernel?",
+            {"Python", "Java", "C", "C++"},
+            'C'
+        },
+        {
+            "Which planet is known as the Red Planet?",
+            {"Earth", "Mars", "Jupiter", "Venus"},
+            'B'
+        },
+        {
+            "Who wrote 'The Odyssey'?",
+            {"Homer", "Plato", "Socrates", "Aristotle"},
+            'A'
+        },
+        {
+            "Which element has the chemical symbol 'O'?",
+            {"Oxygen", "Gold", "Silver", "Hydrogen"},
+            'A'
+        },
+        {
+            "what is the sum of 5+5 ?",
+            {"10", "20", "12", "7"},
+            'A'
+        },
+        {
+            "what is the fastest land animal ?",
+            {"Lion", "Tiger", "Cheetah", "leopad"},
+            'C'
+        },
+        {
+            "who painted the Mona  Lisa ?",
+            {"Williams", "Petter", "Ronaldo", "Leonardo da Vinci"},
+            'D'
+        },
+        {
+            "In which year did World War 2 started?",
+            {"1954", "1945", "1948", "1947"},
+            'B'
+        },
+        {
+            "which element is needed for the human body to produce hemoglobin ?",
+            {"Iron", "Carbohydrates", "Proteins", "Fats"},
+            'A'
+        },
+        {
+            "what is the chemical symbol  for gold ?",
+
+            {"N", "O2", "Au", "Fe"},
+            'C'
+        },
+        
+        {
+            "who is the current CEO of Tesla(as of 2024) ?",
+            {"Tim Cook", "Elon Musk", "Jeff Bezos", "Sundar Pichai"},
+            'B'
+        },
+        
+        {
+            "How many continents are there on Earth ?",
+            {"5", "6", "8", "7"},
+            'D'
+        },
+        
+        {
+            "Which country is famous for the Great Wall ?",
+            {"India", "China", "Japan", "Egypt"},
+            'B'
+        },
+        {
+            "In which year did the Titanic sink ?",
+            {"1905", "1920", "1912", "1917"},
+            'C'
+        },
+        
+        
+    };
+
+    int score = 0;                                                                       //initially the score will be 0.
+
+    printf("Welcome to the Quiz Game!\n");
+
+    for (int i = 0; i < NUM_QUESTIONS; i++) 
+    {
+        askQuestion(quiz[i], &score);
+    }
+    printf("------------------------------------------------------------\n");
+    printf("Your final score is %d out of %d.\n", score, NUM_QUESTIONS);                // printing the final output of the quiz.
+    printf("------------------------------------------------------------\n");
+    return 0;
+}
+ 
