@@ -1,7 +1,7 @@
-# CODTECH-TASK1
+## CODTECH-TASK1
 ## Title:- Simple quiz
 
-### Name:- vinay babu
+### Name:- Vinay babu
 
 ## Introduction:- <br>
 A simple console-based quiz game that presents multiple-choice questions to the user. The game tracks the user's score and provides instant feedback on each answer. Great for practicing basic programming logic and user interaction.
