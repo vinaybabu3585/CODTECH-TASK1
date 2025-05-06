@@ -1,4 +1,4 @@
-## CODTECH-TASK1
+### CODTECH-TASK 1
 ## Title:- Simple quiz
 
 ### Name:- Vinay babu
